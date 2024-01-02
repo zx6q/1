@@ -3,13 +3,14 @@
 <meta charset="UTF-8">
 	</head><style>
 
-* {background-color:#111;color:#ccc;text-align:center;font-size:3vw;}
-textarea {width:20em;height:8em;scrollbar-color:#aaa #333;}
+* {background-color:#111;color:#ccc;text-align:center;font-size:4vw;letter-spacing:0.1em;}
+textarea {width:20em;height:8em;scrollbar-color:#aaa #333;border:solid 0.1em #aaa;padding:0.4em 0.2em;}
 textarea::-webkit-scrollbar{background-color:#000}
-		textarea::-webkit-scrollbar-track{background-color:#444}
-		textarea::-webkit-scrollbar-thumb{background-color:#888}
-		textarea::-webkit-scrollbar-corner{background-color:#000}
-		::selection{background-color:#999;}
+textarea::-webkit-scrollbar-track{background-color:#444}
+textarea::-webkit-scrollbar-thumb{background-color:#888}
+textarea::-webkit-scrollbar-corner{background-color:#000}
+::selection{background-color:#999;}
+
 	</style><body>
 
 <div style="margin-top:10vh;margin-bottom:5vh;">Clash Royale URL</div>
@@ -17,10 +18,13 @@ textarea::-webkit-scrollbar{background-color:#000}
 <div onclick="clicked()">Button- Encode & Copy</div>
 
 	</body><script>
+
 function clicked () {
-		const _ =document.getElementById("textarea");
+	const _ =document.getElementById("textarea");
+	if (_.value) {
 		_.value = _.value.split(" ").pop();
-		navigator.clipboard.writeText(_.value);
+	} else { _.value =navigator.clipboard.readText().split(" ").pop() };
+	navigator.clipboard.writeText(_.value);
 };
 
 	</script></html>
